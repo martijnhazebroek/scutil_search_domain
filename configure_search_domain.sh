@@ -25,7 +25,7 @@ create_target_dir() {
 }
 
 download_file() {
-    file_to_download=https://gist.githubusercontent.com/martijnhazebroek/b44d817f05f8b258d7c89a705c56b380/raw/8be799fb383f191548a5cabcd6b1954c0b8449db/VPN%2520iSstp%2520search%2520domains 
+    file_to_download=https://raw.githubusercontent.com/martijnhazebroek/scutil_search_domain/master/scutil_helpers.sh
     log "Download file: $file_to_download to: $scutil_full_path"
     curl -fsSL -o $scutil_full_path $file_to_download
 }
