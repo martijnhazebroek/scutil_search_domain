@@ -17,30 +17,30 @@ install() {
 
 create_target_dir() {
     if [ ! -d $scutil_helper_dir ]; then
-        log "Creating directory: $scutil_helper_dir"
+        dlog "Creating directory: $scutil_helper_dir"
         mkdir -p $scutil_helper_dir;
     else
-        log "$scutil_helper_dir already exists"
+        dlog "$scutil_helper_dir already exists"
     fi
 }
 
 download_file() {
     file_to_download=https://raw.githubusercontent.com/martijnhazebroek/scutil_search_domain/master/scutil_helpers.sh
-    log "Download file: $file_to_download to: $scutil_full_path"
+    dlog "Download file: $file_to_download to: $scutil_full_path"
     curl -fsSL -o $scutil_full_path $file_to_download
 }
 
 install_to_possible_shells() {
     target=~/.bashrc
-    if [ -f $target ]; then install_to_shell $scutil_full_path "$target"; else log "warning: $target file not found"; fi
+    if [ -f $target ]; then install_to_shell $scutil_full_path "$target"; else dlog "warning: $target file not found"; fi
     target=~/.zshrc
-    if [ -f $target ]; then install_to_shell $scutil_full_path "$target"; else log "warning: $target file not found"; fi
+    if [ -f $target ]; then install_to_shell $scutil_full_path "$target"; else dlog "warning: $target file not found"; fi
 }
 
 install_to_shell() {
     source=$1
     target=$2
-    log "Adding scutil helper functions to $target"
+    dlog "Adding scutil helper functions to $target"
     printf "\n\n" >> $target
     printf ". $scutil_full_path"  >> $target
 }
@@ -52,7 +52,7 @@ install_and_run() {
     install_search_domain $search_domain
 }
 
-log() {
+dlog() {
     if [ $verbose -eq 0 ]; then echo $1; fi
 }
 

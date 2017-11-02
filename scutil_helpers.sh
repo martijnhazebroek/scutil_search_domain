@@ -24,9 +24,7 @@ EOT
 install_search_domain() {
     search_domain=$1
     guid=$(scutil_query State:/Network/Global/IPv4 | grep "PrimaryService" | cut -d " " -f 5)
-    log "guid: $guid"
     ips=$(scutil_query State:/Network/Service/$guid/DNS | egrep -p "\d\s:\s(\d+\.)" | cut -d " " -f 7 | xargs)
-    log "ips: $ips"
 
     scutil_add $guid "$ips" $search_domain    
 }
