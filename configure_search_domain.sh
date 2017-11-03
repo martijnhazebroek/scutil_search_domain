@@ -42,7 +42,7 @@ install_to_shell() {
     target=$2
     dlog "Adding scutil helper functions to $target"
     printf "\n\n" >> $target
-    printf ". $scutil_full_path"  >> $target
+    echo ". $scutil_full_path"  >> $target
 }
 
 install_and_run() {
