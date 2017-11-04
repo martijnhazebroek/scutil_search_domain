@@ -18,10 +18,19 @@ And you should be done.
 ## How to use it the next time
 
 1. Connect to your VPN.
-1. Close your terminal if you just ran the install script.
+1. Once: close your terminal if you just ran the install script.
 1. Open a terminal (bash, zsh).
 1. Enter the following command (don't forget to change the your.domain.tld part).
 
 ```bash
 install_search_domain your.domain.tld
+```
+
+## How to uninstall
+
+1. Open a terminal.
+1. Enter the following command
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/martijnhazebroek/scutil_search_domain/master/uninstall.sh)"
 ```
